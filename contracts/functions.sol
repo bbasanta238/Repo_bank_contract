@@ -138,4 +138,12 @@ contract Functions is Data {
 			mappedUserInfo[_toAddress][_toAccount].balance +
 			_balance;
 	}
+
+	// get balance fucntion
+	function getBalance(
+		address _addressCheckBalance,
+		uint256 _accountCheckBalance
+	) public view returns (uint256) {
+		return (mappedUserInfo[_addressCheckBalance][_accountCheckBalance].balance);
+	}
 }
