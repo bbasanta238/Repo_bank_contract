@@ -6,6 +6,19 @@ import "./data.sol";
 contract Functions is Data {
 	//  ****************************** MODIFIERS ***************************************************************//
 
+	//modifier to check if account number already exists or not during account creation
+	modifier accountAlreadyExist(uint256 _accountNumber) {
+bool temp;
+for (uint256 i = 0; i < accounts.length; i++) {
+	if (accounts[i] == _accountNumber) {
+				temp = true;
+				break;
+			}
+		}
+		require(temp == false, "Account Already Exist");
+		_;
+	}
+
 	// modifier to check balance is sufficient to withdraw or transfer
 	modifier isSufficientBalance(
 		uint256 _withdrawlAccount,
@@ -76,7 +89,7 @@ contract Functions is Data {
 		uint256 _bankName,
 		string memory _branch,
 		uint256 _balance
-	) public {
+	) public accountAlreadyExist(_accountNumber){
 		//pushing into address array
 		addresses.push(msg.sender);
 		//pushing into accounts
