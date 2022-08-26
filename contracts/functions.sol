@@ -28,6 +28,14 @@ contract Functions is Data {
 		_;
 	}
 
+	// modifier to check whether if the transferring account belongs to  invoker or not
+	modifier isInvokerHasAccount(uint256 _accountNumber) {
+		require(
+			mappedUserInfo[msg.sender][_accountNumber].isExists == true,
+			"Account does not belongs to this Address"
+		);
+		_;
+	}
 
 	// ************************************** FUNCTIONS REQUIREMENT *********************************************//
 
@@ -130,8 +138,4 @@ contract Functions is Data {
 			mappedUserInfo[_toAddress][_toAccount].balance +
 			_balance;
 	}
-
-
-
-	
 }

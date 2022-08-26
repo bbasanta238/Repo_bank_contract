@@ -1,0 +1,84 @@
+console.log(functiondeploy.address)
+console.log(address)
+console.log(msg.sender)
+console.log(.address)
+await functiondeploy.connect(add1)
+console.log(await functiondeploy.getSpecificAddressData());
+await functiondeploy.connect(add2)
+console.log(await functiondeploy.getSpecificAddressData());
+await functiondeploy.connect(add1)
+console.log(await functiondeploy.getSpecificAddressData());
+console.log(await functiondeploy.balanceTransfer(11,1,add1.address,5));
+console.log(await functiondeploy.getSpecificAddressData());
+console.log(functiondeploy.getSpecificAddressData());
+await functiondeploy.createAccount(11,100,77,10);
+await functiondeploy.connect(add2)
+await network.connect.add2
+await network.connect.acc2
+console.log(address)
+console.log(await functiondeploy.balanceTransfer(1,2,add2.address,50));
+console.log(await add2.address)
+console.log(await ethers.provider.add2)
+console.log(await ethers.provider.add2.address)
+console.log(await ethers.provider.getBalance(add2))
+console.log(await ethers.provider.getBalance(add1))
+console.log(ethers.provider.getBalance(add1))
+const [add1, add2 , add3] = await ethers.getSigners();
+console.log(await ethers.provider.getBalance(deployer))
+console.log(ethers.provider.getBalance(deployer))
+console.log(ethers.provider.getBalance(deployer[1].address))
+const [deployer] = await ethers.getSigners();
+console.log(await network.provider.account[1])
+console.log(await network.provider.account)
+console.log(await network.provider[1])
+console.log(await network.provider)
+console.log(await network.provider.accounts)
+console.log(await network.provider.accounts[2])
+console.log(await functiondeploy.balanceTransfer(1,2,0x70997970C51812dc3A010C7d01b50e0d17dc79C8,50));
+console.log(await functiondeploy.createAccount(1,10,777,50));
+const functiondeploy = await functioninstance.deploy();
+const functioninstance = await ethers.getContractFactory("Functions");
+clear
+console.log(await functiondeploy.balanceTransfer(1,2,0x70997970C51812dc3A010C7d01b50e0d17dc79C8,50));
+console.log(await functiondeploy.balanceTransfer(1,2,account[1],50));
+console.log(await functiondeploy.balanceTransfer(1,2,accounts[1],50));
+console.log(await functiondeploy.getSpecificAddressData());
+console.log(await functiondeploy.createAccount(1,10,777,50));
+const functiondeploy = await functioninstance.deploy();
+const functioninstance = await ethers.getContractFactory("Functions");
+clear
+console.log(functiondeploy.getSpecificAddressData());
+console.log(mappedUserInfo[msg.sender][1].balance);
+console.log(functiondeploy.createAccount(1,10,777,50));
+console.log(functiondeploy.createAccount(1,10,butwal,50));
+console.log(fucntiondeploy.createAccount(1,10,butwal,50));
+const functiondeploy = await functioninstance.deploy();
+const datadeploy = await datainstance.deploy();
+const functioninstance = await ethers.getContractFactory("Functions");
+const datainstance = await ethers.getContractFactory
+console.log(functiondeploy.getSpecificAddressData());
+console.log(functiondeploy.getSpecificAddressData);
+console.log(functiondeploy.createAccount(1,10,777,50));
+console.log(functiondeploy.createAccount(1,10,butwal,50));
+console.log(fucntiondeploy.createAccount(1,10,butwal,50));
+console.log(createAccount(1,10,butwal,50));
+console.log(createAccount(1,10,butwal,50)));
+const functiondeploy = await functioninstance.deploy();
+const functioninstance = await ethers.getContractFactory("Functions");
+clear
+const functiondeploy = await functioninstance.deploy;
+const functiondeploy = await functioninstance.deploy();
+const functioninstance = await ethers.getContractFactory
+console.log(await functiondeploy.getSpecificAddressData())
+console.log(await functiondeploy.createAccount(1,10,100,5000))
+console.log(await functiondeploy.createAccount(1,10,butwal,5000))
+console.log(await functiondeploy.getSpecificAddressData())
+const functiondeploy = await functioninstance.deploy();
+const functioninstance = await ethers.getContractFactory("Functions");
+const datadeploy = await datainstance.deploy();
+const datainstance = await ethers.getContractFactory('Data');
+.exit
+const datainstance = await ethers..exit
+.exit
+clear
+const datadeploy = await datainstance.deploy();
