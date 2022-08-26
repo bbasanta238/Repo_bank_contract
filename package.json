@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier:solidity": "./node_modules/.bin/prettier --write contracts/**/*.sol"
+  },
+  "husky":{
+"hooks":{
+  "pre-commit":"yarn run prettier:solidity"
+}
   },
   "repository": {
     "type": "git",
@@ -18,6 +24,7 @@
   "homepage": "https://github.com/bbasanta238/Repo_bank_contract#readme",
   "dependencies": {
     "hardhat": "^2.10.2",
+    "husky": "^8.0.1",
     "prettier-plugin-solidity": "^1.0.0-beta.24",
     "solhint-plugin-prettier": "^0.0.5"
   },
