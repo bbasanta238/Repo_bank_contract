@@ -4,6 +4,33 @@ pragma solidity ^0.8.16;
 import "./data.sol";
 
 contract Functions is Data {
+	//  ****************************** MODIFIERS ***************************************************************//
+
+	// modifier to check balance is sufficient to withdraw or transfer
+	modifier isSufficientBalance(
+		uint256 _withdrawlAccount,
+		uint256 _withdrawlBalance
+	) {
+		require(
+			mappedUserInfo[msg.sender][_withdrawlAccount].balance >=
+				_withdrawlBalance,
+			"Insufficient Balance"
+		);
+		_;
+	}
+
+	// modifier to check validation of bankAccount
+	modifier isAccountExist(address _accountAddress, uint256 _accountNumber) {
+		require(
+			mappedUserInfo[_accountAddress][_accountNumber].isExists == true,
+			"Incorrect Account Number"
+		);
+		_;
+	}
+
+
+	// ************************************** FUNCTIONS REQUIREMENT *********************************************//
+
 	function createAccount(
 		uint256 _accountNumber,
 		uint256 _bankName,
@@ -30,7 +57,10 @@ contract Functions is Data {
 	}
 
 	//function for withdrawl
-	function withdraw(uint256 _accountNumber, uint256 _balance) public {
+	function withdraw(uint256 _accountNumber, uint256 _balance)
+		public
+		isSufficientBalance(_accountNumber, _balance)
+	{
 		mappedUserInfo[msg.sender][_accountNumber].balance =
 			mappedUserInfo[msg.sender][_accountNumber].balance -
 			_balance;
@@ -81,4 +111,27 @@ contract Functions is Data {
 		}
 		return specificBankData;
 	}
+
+	// transfering balance from one account to another
+	function balanceTransfer(
+		uint256 _fromAccount,
+		uint256 _toAccount,
+		address _toAddress,
+		uint256 _balance
+	)
+		public
+		isSufficientBalance(_fromAccount, _balance)
+		isAccountExist(_toAddress, _toAccount)
+	{
+		mappedUserInfo[msg.sender][_fromAccount].balance =
+			mappedUserInfo[msg.sender][_fromAccount].balance -
+			_balance;
+		mappedUserInfo[_toAddress][_toAccount].balance =
+			mappedUserInfo[_toAddress][_toAccount].balance +
+			_balance;
+	}
+
+
+
+	
 }
