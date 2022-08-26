@@ -37,6 +37,38 @@ contract Functions is Data {
 		_;
 	}
 
+	// ****************************************EVENTS *********************************************************//
+	// event of account creation
+	event eventAccountCreation(
+		address accountAddress,
+		uint256 accountNumber,
+		uint256 time
+	);
+
+	// event for deposit
+	event eventBalanceDeposit(
+		address accountAddress,
+		uint256 accountNumber,
+		uint256 depositedBalance,
+		uint256 time
+	);
+
+	// event for withdrawl
+	event eventBalanceWithdraw(
+		address accountAddress,
+		uint256 accountNumber,
+		uint256 withdrawlBalance,
+		uint256 time
+	);
+
+	// events for transfer
+	event eventBalanceTransfer(
+		uint256 accountFrom,
+		uint256 accountTo,
+		uint256 transferedBalance,
+		uint256 time
+	);
+
 	// ************************************** FUNCTIONS REQUIREMENT *********************************************//
 
 	function createAccount(
@@ -55,23 +87,37 @@ contract Functions is Data {
 			_balance,
 			true
 		);
+		emit eventAccountCreation(msg.sender, _accountNumber, block.timestamp);
 	}
 
 	//function for deposition
-	function deposit(uint256 _accountNumber, uint256 _balance) public {
+	function deposit(uint256 _accountNumber, uint256 _depositbalance) public {
 		mappedUserInfo[msg.sender][_accountNumber].balance =
 			mappedUserInfo[msg.sender][_accountNumber].balance +
-			_balance;
+			_depositbalance;
+		emit eventBalanceDeposit(
+			msg.sender,
+			_accountNumber,
+			_depositbalance,
+			block.timestamp
+		);
 	}
 
 	//function for withdrawl
-	function withdraw(uint256 _accountNumber, uint256 _balance)
+	function withdraw(uint256 _accountNumber, uint256 _withdrawbalance)
 		public
-		isSufficientBalance(_accountNumber, _balance)
+		isSufficientBalance(_accountNumber, _withdrawbalance)
 	{
 		mappedUserInfo[msg.sender][_accountNumber].balance =
 			mappedUserInfo[msg.sender][_accountNumber].balance -
-			_balance;
+			_withdrawbalance;
+
+		emit eventBalanceDeposit(
+			msg.sender,
+			_accountNumber,
+			_withdrawbalance,
+			block.timestamp
+		);
 	}
 
 	function getSpecificAddressData() public view returns (returnData[] memory) {
@@ -137,6 +183,13 @@ contract Functions is Data {
 		mappedUserInfo[_toAddress][_toAccount].balance =
 			mappedUserInfo[_toAddress][_toAccount].balance +
 			_balance;
+
+		emit eventBalanceTransfer(
+			_fromAccount,
+			_toAccount,
+			_balance,
+			block.timestamp
+		);
 	}
 
 	// get balance fucntion
