@@ -7,6 +7,7 @@ async function main() {
 	const functioninstance = await ethers.getContractFactory("Functions");
 	const datadeploy = await datainstance.deploy();
 	const functiondeploy = await functioninstance.deploy();
+	await functiondeploy.deployed();
 	console.log("function token address : ", functiondeploy.address);
 	console.log("data token address :", datadeploy.address);
 }

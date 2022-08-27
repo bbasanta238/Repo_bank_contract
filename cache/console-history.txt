@@ -1,3 +1,39 @@
+console.log(await functioninstance.connect(add2).createAccount(3,11,"hetauda",2000))
+console.log(await functioninstance.connect(add2).createAccount(3,11,"hetauda",2000);
+functioninstance
+await functioninstance.connect(add1).getBankdata(10);
+await functioncontract.connect(add2).createAccount(2,10,"butwal",5000);
+await functioninstance.connect(add1)withdraw(1,500);
+await functioninstance.connect(add1).withdraw(1,500);
+await functioninstance.attach(add1).deposit(1,500);
+await functioninstance.connect(add1).deposit(1,500);
+functioninstance
+await functioninstance.connect(add2).deposit(1,500);
+await functioncontract.connect(add1).createAccount(1,10,"butwal",10000);
+await functioncontract.connect(add1).createAccount(1,"butwal",10,10000);
+await functioncontract.connect(add1).createAccount(1,btl,10,10000);
+await functioncontract.connect(add1).getBankData(11);
+await functioncontract.connect(add1).getBankData(10);
+await functioncontract.connect(add2).getBankData(10);
+await functioncontract.connect(add2).getBalance(add2.address,2)
+await functioncontract.connect(add2).getBalance(add1.address,1)
+await functioncontract.connect(add2).createAccount(2,11,888,2000)
+await functioncontract.connect(add1).createAccount(1,10,7777,1000)
+functioncontract.connect(add1).createAccount(1,10,7777,1000)
+functioncontract.connect(add1).createAccount(1,10,butwal,1000)
+functioncontract.connect(add1)
+const [add1, add2, add3] = await ethers.getSigners();
+functioncontract
+const functioncontract = await functioninstance.attach('0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9')
+const functioninstance = await ethers.getContractFactory("Functions");
+await functioninstance.connect(add1).createAccount(1,10,btl,100);
+functioninstance
+await functioninstance.connect(add1)
+await functioninstance.attach(add1.address)
+await functioninstance.attach(add1)
+add1
+const [add1, add2, add3] = await ethers.getSigners();
+const functioninstance = await ethers.getContractFactory
 const bank = await
 const functioninstance = await ethers.getContractFactory
 const result = await functiondeploy.createAccount(1,10,777,5000)

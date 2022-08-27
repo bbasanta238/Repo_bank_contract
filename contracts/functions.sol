@@ -4,12 +4,17 @@ pragma solidity ^0.8.16;
 import "./data.sol";
 
 contract Functions is Data {
+    // constructor to initallize admin
+    constructor() {
+        admin = msg.sender;
+    }
+
     //  ****************************** MODIFIERS ***************************************************************//
 
     //modifier to check if account number already exists or not during account creation
     modifier accountAlreadyExist(uint256 _accountNumber) {
- bool temp;
-for (uint256 i = 0; i < accounts.length; i++) {
+        bool temp;
+        for (uint256 i = 0; i < accounts.length; i++) {
             if (accounts[i] == _accountNumber) {
                 temp = true;
                 break;
@@ -50,6 +55,13 @@ for (uint256 i = 0; i < accounts.length; i++) {
         _;
     }
 
+    // modifier to check only the admin can access all accounts data
+    modifier isAdmin() {
+        require(msg.sender == admin, "Unauthorized permission");
+        _;
+    }
+
+
     // ****************************************EVENTS *********************************************************//
     // event of account creation
     event eventAccountCreation(
@@ -82,8 +94,10 @@ for (uint256 i = 0; i < accounts.length; i++) {
         uint256 time
     );
 
-    // ************************************** FUNCTIONS REQUIREMENT *********************************************//
 
+
+    // ************************************** FUNCTIONS REQUIREMENT *********************************************//
+    // function for account creation
     function createAccount(
         uint256 _accountNumber,
         uint256 _bankName,
@@ -119,7 +133,8 @@ for (uint256 i = 0; i < accounts.length; i++) {
     //function for withdrawl
     function withdraw(uint256 _accountNumber, uint256 _withdrawbalance)
         public
-        isSufficientBalance(_accountNumber, _withdrawbalance)
+        isSufficientBalance(_accountNumber, _withdrawbalance) 
+        isInvokerHasAccount(_accountNumber)
     {
         mappedUserInfo[msg.sender][_accountNumber].balance =
             mappedUserInfo[msg.sender][_accountNumber].balance -
@@ -133,11 +148,8 @@ for (uint256 i = 0; i < accounts.length; i++) {
         );
     }
 
-    function getSpecificAddressData()
-        public
-        view
-        returns (returnData[] memory)
-    {
+    //
+    function personalInfo() public view returns (returnData[] memory) {
         //memory array for returning
         returnData[] memory specificData = new returnData[](accounts.length);
         uint256 counter;
@@ -161,6 +173,7 @@ for (uint256 i = 0; i < accounts.length; i++) {
     function getBankData(uint256 _bankName)
         public
         view
+        isAdmin
         returns (returnBankData[] memory)
     {
         uint256 counter;
