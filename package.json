@@ -5,11 +5,11 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"prettier:solidity": "yarn prettier --write 'contracts/functions.sol'"
+		"prettier-solidity": "yarn prettier --write 'contracts/functions.sol'"
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "yarn run prettier:solidity"
+			"pre-commit": "lint-staged"
 		}
 	},
 	"repository": {
@@ -23,16 +23,21 @@
 	},
 	"homepage": "https://github.com/bbasanta238/Repo_bank_contract#readme",
 	"dependencies": {
-		"hardhat": "^2.10.2",
-		"husky": "^8.0.1",
-		"prettier-plugin-solidity": "^1.0.0-beta.24",
-		"solhint-plugin-prettier": "^0.0.5"
+		"hardhat": "^2.10.2"
+	},
+	"lint-staged":{
+		"*.{ts,js,css,json,sol}":["./node_modules/.bin/prettier --write"]
 	},
 	"devDependencies": {
 		"@nomicfoundation/hardhat-toolbox": "^1.0.2",
 		"@nomiclabs/hardhat-ethers": "^2.1.1",
 		"@nomiclabs/hardhat-waffle": "^2.0.3",
 		"ethereum-waffle": "^3.4.4",
-		"ethers": "^5.7.0"
+		"ethers": "^5.7.0",
+		"husky": "^8.0.1",
+		"lint-staged": "^13.0.3",
+		"prettier": "^2.7.1",
+		"prettier-plugin-solidity": "^1.0.0-beta.24",
+		"solhint": "^3.3.7"
 	}
 }

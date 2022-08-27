@@ -8,7 +8,7 @@ contract Functions is Data {
 
     //modifier to check if account number already exists or not during account creation
     modifier accountAlreadyExist(uint256 _accountNumber) {
-bool temp;
+    bool temp;
 for (uint256 i = 0; i < accounts.length; i++) {
             if (accounts[i] == _accountNumber) {
                 temp = true;
@@ -59,11 +59,7 @@ for (uint256 i = 0; i < accounts.length; i++) {
     );
 
     // event for deposit
-    event eventBalanceDeposit(
-        address accountAddress,
-        uint256 accountNumber,
-        uint256 depositedBalance,
-        uint256 time
+    event eventBalanceDeposit(address accountAddress,uint256 accountNumber, uint256 depositedBalance, uint256 time
     );
 
     // event for withdrawl
@@ -144,11 +140,7 @@ for (uint256 i = 0; i < accounts.length; i++) {
         //returning specificAddress data
         for (uint256 i = 0; i < accounts.length; i++) {
             if (mappedUserInfo[msg.sender][accounts[i]].isExists == true) {
-                returnData memory newstructData = returnData(
-                    accounts[i],
-                    mappedUserInfo[msg.sender][accounts[i]].bankName,
-                    mappedUserInfo[msg.sender][accounts[i]].branch,
-                    mappedUserInfo[msg.sender][accounts[i]].balance
+                returnData memory newstructData = returnData(accounts[i],mappedUserInfo[msg.sender][accounts[i]].bankName,mappedUserInfo[msg.sender][accounts[i]].branch, mappedUserInfo[msg.sender][accounts[i]].balance
                 );
                 specificData[counter] = newstructData;
                 counter++;
