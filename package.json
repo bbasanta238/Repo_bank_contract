@@ -11,7 +11,6 @@
 	"husky": {
 		"hooks": {
 			"pre-commit": [
-				"lint-staged",
 				"yarn prettier --write 'contracts/functions.sol'"
 			]
 		}
@@ -29,11 +28,7 @@
 	"dependencies": {
 		"hardhat": "^2.10.2"
 	},
-	"lint-staged": {
-		"*.{ts,js,css,json}": [
-			"./node_modules/.bin/prettier --write"
-		]
-	},
+	"lint-staged": {},
 	"devDependencies": {
 		"@nomicfoundation/hardhat-toolbox": "^1.0.2",
 		"@nomiclabs/hardhat-ethers": "^2.1.1",
