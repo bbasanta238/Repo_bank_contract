@@ -13,7 +13,8 @@ Initialize hardhat Node
 Run deploy script in local noode
 
 ```bash
- $yarn hardhat run scripts/deploy.js --network localhost
+ $yarn hardhat run scripts/1_data_contract.js --network localhost
+ $yarn hardhat run scripts/2_functions_contract.js --network localhost
 ```
 
 Run hardhat development console
@@ -31,7 +32,7 @@ Initialize Factory contract
 Attach factory contract instance
 
 ```bash
- >const functioncontract = await functioninstance.attac('...deployed contract address')
+ >const functioncontract = await functioninstance.attach('...deployed contract address')
 ```
 
 Get Signers
@@ -55,7 +56,7 @@ Get Signers
  >await functioncontract.connect(add2).createAccount(1,11,"butwal",5000);
 ```
 
-- Expected Output: transaction reverted: Account Already Exist
+- Expected Error: transaction reverted: Account Already Exist
 
 #### DEPOSIT TEST
 
@@ -77,7 +78,7 @@ Account withdrawl Invalid invoker
  >await functioncontract.connect(add2).withdraw(1,100);
 ```
 
-- Expected Output: transaction reverted: Account does not belongs to this Address
+- Expected Error: transaction reverted: Account does not belongs to this Address
 
 #### BALANCE TRANSFER TEST
 
@@ -92,7 +93,7 @@ Handling unregistered account balance transfer
  >functioncontract.connect(add2).balanceTransfer(2,3,add1.address,500);
 ```
 
-- Expected Output: transaction reverted: Incorrect Account Number
+- Expected Error: transaction reverted: Incorrect Account Number
 
 #### BANK DATA AUTHORIZATION TEST
 
@@ -106,4 +107,22 @@ Trying to access from other address except from deployer address
  >await functioncontract.connect(add2).getBankData(10)
 ```
 
-- Expected Output: transaction reverted: Unauthorized permission
+- Expected Error: transaction reverted: Unauthorized permission
+
+#### CHANGE ADMIN TEST
+
+```bash
+ >await functioncontract.connect(add1).changeAdmin(add2.address);
+```
+
+checking if previous access is valid or not
+
+```bash
+ >await functioncontract.connect(add1).getBankData(10);
+```
+
+- Expected Error: transaction reverted: Unauthorized permission
+
+```bash
+ >await functioncontract.connect(add2).getBankData(10);
+```

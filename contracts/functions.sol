@@ -61,7 +61,6 @@ contract Functions is Data {
         _;
     }
 
-
     // ****************************************EVENTS *********************************************************//
     // event of account creation
     event eventAccountCreation(
@@ -93,8 +92,6 @@ contract Functions is Data {
         uint256 transferedBalance,
         uint256 time
     );
-
-
 
     // ************************************** FUNCTIONS REQUIREMENT *********************************************//
     // function for account creation
@@ -133,7 +130,7 @@ contract Functions is Data {
     //function for withdrawl
     function withdraw(uint256 _accountNumber, uint256 _withdrawbalance)
         public
-        isSufficientBalance(_accountNumber, _withdrawbalance) 
+        isSufficientBalance(_accountNumber, _withdrawbalance)
         isInvokerHasAccount(_accountNumber)
     {
         mappedUserInfo[msg.sender][_accountNumber].balance =
@@ -233,5 +230,10 @@ contract Functions is Data {
         return (
             mappedUserInfo[_addressCheckBalance][_accountCheckBalance].balance
         );
+    }
+
+    //transfer admin ownership
+    function changeAdmin(address _newAdmin) public isAdmin {
+        admin = _newAdmin;
     }
 }
