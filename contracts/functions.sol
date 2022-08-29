@@ -86,6 +86,9 @@ contract functions is data {
 		uint256 transferedBalance
 	);
 
+	// event for admun change
+	event eventAdminChange(address newAdmin);
+
 	// ************************************** FUNCTIONS REQUIREMENT *********************************************//
 	// function for account creation
 	function createAccount(
@@ -208,5 +211,6 @@ contract functions is data {
 	//transfer admin ownership
 	function changeAdmin(address _newAdmin) public isAdmin {
 		admin = _newAdmin;
+		emit eventAdminChange(_newAdmin);
 	}
 }
