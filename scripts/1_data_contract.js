@@ -1,6 +1,6 @@
 async function main() {
 	const [deployer] = await ethers.getSigners();
-	const datainstance = await ethers.getContractFactory("Data");
+	const datainstance = await ethers.getContractFactoryata("data");
 	const datadeploy = await datainstance.deploy();
 	console.log("data token address :", datadeploy.address);
 }

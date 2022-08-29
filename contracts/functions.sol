@@ -3,9 +3,10 @@ pragma solidity ^0.8.16;
 
 import "./data.sol";
 
-contract Functions is Data {
+contract functions is data {
     // constructor to initallize admin
-    constructor() { admin = msg.sender;
+    constructor() {
+        admin = msg.sender;
     }
 
     //  ****************************** MODIFIERS ***************************************************************//

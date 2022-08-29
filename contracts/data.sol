@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-contract Data {
+contract data {
     // admin account address
     address admin;
 
