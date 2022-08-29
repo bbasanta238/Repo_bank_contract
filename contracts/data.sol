@@ -3,7 +3,7 @@ pragma solidity ^0.8.16;
 
 contract data {
     // admin account address
-    address admin;
+    address public admin;
 
     struct userInfo {
         // uint accountNumber;
