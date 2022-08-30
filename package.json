@@ -19,7 +19,8 @@
 	},
 	"homepage": "https://github.com/bbasanta238/Repo_bank_contract#readme",
 	"dependencies": {
-		"hardhat": "^2.10.2"
+		"hardhat": "^2.10.2",
+		"web3": "^1.7.5"
 	},
 	"lint-staged": {},
 	"devDependencies": {
