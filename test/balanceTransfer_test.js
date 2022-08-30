@@ -22,7 +22,7 @@ describe("Balance transfer method test", function () {
 			.withArgs(1, 2, 100);
 
 		const res = await hardhatDataContract.connect(add1).personalInfo();
-		console.log(res);
+		console.log("account Number ", res[0].accountNumber.value);
 	});
 
 	it("should revert transaction with error Incorrect Account Number", async () => {

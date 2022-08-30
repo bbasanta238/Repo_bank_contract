@@ -111,11 +111,19 @@ contract functions is data {
 	}
 
 	//function for deposition
-	function deposit(uint256 _accountNumber, uint256 _depositbalance) public {
-		mappedUserInfo[msg.sender][_accountNumber].balance =
-			mappedUserInfo[msg.sender][_accountNumber].balance +
+	function deposit(
+		uint256 _accountNumber,
+		address _toAccountAddress,
+		uint256 _depositbalance
+	) public isAccountExist(_toAccountAddress, _accountNumber) {
+		mappedUserInfo[_toAccountAddress][_accountNumber].balance =
+			mappedUserInfo[_toAccountAddress][_accountNumber].balance +
 			_depositbalance;
-		emit eventBalanceDeposit(msg.sender, _accountNumber, _depositbalance);
+		emit eventBalanceDeposit(
+			_toAccountAddress,
+			_accountNumber,
+			_depositbalance
+		);
 	}
 
 	//function for withdrawl
