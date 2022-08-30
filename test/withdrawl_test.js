@@ -18,8 +18,9 @@ describe("Withdrawl method test", function () {
 			.to.emit(hardhatDataContract, "eventBalanceWithdraw")
 			.withArgs(add1.address, 1, 300);
 
-		const res = await hardhatDataContract.connect(add1).personalInfo();
-		console.log(res);
+		expect(
+			(await hardhatDataContract.connect(add1).personalInfo())[0].balance
+		).to.equal(700);
 	});
 
 	it("should revert transaction with error Insufficient Balance", async () => {
